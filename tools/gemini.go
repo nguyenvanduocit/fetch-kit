@@ -9,7 +9,7 @@ import (
 
 	"github.com/mark3labs/mcp-go/mcp"
 	"github.com/mark3labs/mcp-go/server"
-	"github.com/nguyenvanduocit/all-in-one-model-context-protocol/util"
+	"github.com/nguyenvanduocit/fetch-kit/util"
 	"google.golang.org/genai"
 )
 
