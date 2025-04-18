@@ -45,7 +45,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   docker:
-    needs: release
+    needs: release-please
     if: ${{ needs.release.outputs.release_created }}
     runs-on: ubuntu-latest
     steps:
