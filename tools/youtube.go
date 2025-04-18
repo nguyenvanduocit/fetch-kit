@@ -1,6 +1,7 @@
 package tools
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"html"
@@ -32,9 +33,9 @@ func RegisterYouTubeTool(s *server.MCPServer) {
 	s.AddTool(tool, util.ErrorGuard(youtubeTranscriptHandler))
 }
 
-func youtubeTranscriptHandler(arguments map[string]interface{}) (*mcp.CallToolResult, error) {
+func youtubeTranscriptHandler(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
 	// Get URL from arguments
-	videoID, ok := arguments["video_id"].(string)
+	videoID, ok := request.Params.Arguments["video_id"].(string)
 	if !ok {
 		return nil, fmt.Errorf("video_id argument is required")
 	}

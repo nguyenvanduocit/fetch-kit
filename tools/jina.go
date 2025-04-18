@@ -1,6 +1,7 @@
 package tools
 
 import (
+	"context"
 	"fmt"
 	"io"
 	"net/http"
@@ -24,8 +25,8 @@ func RegisterJinaTool(s *server.MCPServer) {
 	s.AddTool(tool, util.ErrorGuard(fetchHandler))
 }
 
-func fetchHandler(arguments map[string]interface{}) (*mcp.CallToolResult, error) {
-	url, ok := arguments["url"].(string)
+func fetchHandler(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+	url, ok := request.Params.Arguments["url"].(string)
 	if !ok {
 		return mcp.NewToolResultError("url must be a string"), nil
 	}
