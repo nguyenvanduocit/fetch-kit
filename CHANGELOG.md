@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/nguyenvanduocit/fetch-kit/compare/v1.1.0...v1.2.0) (2025-04-18)
+
+
+### Features
+
+* add Dockerfile and update dependencies; refactor tool handlers to use context ([6f710f5](https://github.com/nguyenvanduocit/fetch-kit/commit/6f710f5e440a7fd908a4c02adff406d9a906018e))
+
 ## [1.1.0](https://github.com/nguyenvanduocit/fetch-kit/compare/v1.0.0...v1.1.0) (2025-04-18)
 
 
