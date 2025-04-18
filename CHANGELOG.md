@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/nguyenvanduocit/fetch-kit/compare/v1.0.0...v1.1.0) (2025-04-18)
+
+
+### Features
+
+* update chart ([8f60171](https://github.com/nguyenvanduocit/fetch-kit/commit/8f60171e76fe261f09c27739539213a90f28aab0))
+
 ## 1.0.0 (2025-02-11)
 
 
