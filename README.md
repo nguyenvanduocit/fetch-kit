@@ -1,69 +1,126 @@
-# Fetch Kit - Model Context Protocol (MCP) Server
+# Fetch Kit
 
-The Model Context Protocol (MCP) implementation in Fetch Kit enables AI models to interact with web services.
+A Go-based MCP (Model Context Protocol) server that enables AI assistants like Claude to interact with web services. This tool provides a seamless interface for AI models to perform various web-related operations.
 
-## Prerequisites
+## Features
 
-- Go 1.23.2 or higher
-- Google AI API key (for Gemini services)
-- Jina AI API key (for web content retrieval)
-- Various API keys and tokens for the services you want to use
+* Interact with web services through AI models
+* Retrieve web content using Jina AI
+* Leverage Google AI (Gemini) services
+* Support for various web service integrations
+* Configurable tool groups
 
 ## Installation
 
-### Installing via Go
+**Requirements:** Go 1.23.2+ (for building from source)
 
-1. Install the server:
+There are several ways to install Fetch Kit:
+
+### Option 1: Go Install
 
 ```bash
 go install github.com/nguyenvanduocit/fetch-kit@latest
 ```
 
-2. Create a `.env` file with your configuration:
+### Option 2: Docker
 
-```env
+#### Using Docker directly
+
+1. Pull the pre-built image from GitHub Container Registry:
+```bash
+docker pull ghcr.io/nguyenvanduocit/fetch-kit:latest
+```
+
+2. Or build the Docker image locally:
+```bash
+docker build -t fetch-kit .
+```
+
+## Configuration
+
+### Environment Variables
+
+The following environment variables are used for configuration:
+
+```
 # Required for AI services
 GOOGLE_AI_API_KEY=    # Required: API key for Google AI (Gemini) service
 JINA_API_KEY=         # Required: API key for Jina AI service
 
 # Optional configurations
 ENABLE_TOOLS=         # Optional: Comma-separated list of tool groups to enable (empty = all enabled)
-PROXY_URL=           # Optional: HTTP/HTTPS proxy URL if needed
+PROXY_URL=            # Optional: HTTP/HTTPS proxy URL if needed
 ```
 
-3. Config your claude's config:
+You can set these:
 
-```json{claude_desktop_config.json}
+1. Directly in the Docker run command
+2. Through a `.env` file (use the `-env` flag)
+3. Directly in your shell environment
+
+## Using with Claude and Cursor
+
+To make Fetch Kit work with Claude and Cursor, you need to add configuration to your Cursor settings.
+
+### Step 1: Install Fetch Kit
+
+Choose one of the installation methods above (Docker recommended).
+
+### Step 2: Configure Cursor
+
+1. Open Cursor
+2. Go to Settings > MCP > Add MCP Server
+3. Add the following configuration:
+
+#### Option A: Using Docker (Recommended)
+
+```json
 {
   "mcpServers": {
     "fetch_kit": {
-      "command": "fetch-kit",
-      "args": ["-env", "/path/to/.env"],
+      "command": "docker",
+      "args": [
+        "run",
+        "--rm",
+        "-i",
+        "-e", "GOOGLE_AI_API_KEY=your_google_ai_key",
+        "-e", "JINA_API_KEY=your_jina_api_key",
+        "ghcr.io/nguyenvanduocit/fetch-kit:latest"
+      ]
     }
   }
 }
 ```
 
-## Enable Tools
+#### Option B: Using Local Binary
 
-There are a hidden variable `ENABLE_TOOLS` in the environment variable. It is a comma separated list of tools group to enable. If not set, all tools will be enabled. Leave it empty to enable all tools.
+```json
+{
+  "mcpServers": {
+    "fetch_kit": {
+      "command": "fetch-kit",
+      "args": ["-env", "/path/to/.env"]
+    }
+  }
+}
+```
 
-## Available Tools
+### Enable Tools
 
-### Group: gemini
+Fetch Kit supports various tool groups that can be enabled or disabled using the `ENABLE_TOOLS` environment variable. If not specified, all tools are enabled by default.
 
-#### ai_web_search
+## Contributing
 
-search the web by using Google AI Search. Best tool to update realtime information
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-### Group: jina
+## License
 
-#### get_web_content
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-Fetches content from a given HTTP/HTTPS URL. This tool allows you to retrieve text content from web pages, APIs, or any accessible HTTP endpoints. Returns the raw content as text.
+---
 
-### Group: youtube
-
-#### youtube_transcript
-
-Get YouTube video transcript
+For a list of recent changes, see CHANGELOG.md.
