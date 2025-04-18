@@ -43,15 +43,15 @@ var genAiClient = sync.OnceValue[*genai.Client](func() *genai.Client {
 	return client
 })
 
-func aiWebSearchHandler(arguments map[string]interface{}) (*mcp.CallToolResult, error) {
-	question, ok := arguments["question"].(string)
+func aiWebSearchHandler(ctx context.Context, request mcp.CallToolRequest) (*mcp.CallToolResult, error) {
+	question, ok := request.Params.Arguments["question"].(string)
 	if !ok {
 		return mcp.NewToolResultError("question must be a string"), nil
 	}
 
 	systemInstruction := "You are a search engine. You will search the web for the answer to the question. You will then provide the answer to the question. Always try to search the web for the answer first before providing the answer. writing style: short, concise, direct, and to the point."
 
-	questionContext, ok := arguments["context"].(string)
+	questionContext, ok := request.Params.Arguments["context"].(string)
 	if !ok {
 		systemInstruction += "\n\nContext: " + questionContext
 	}
