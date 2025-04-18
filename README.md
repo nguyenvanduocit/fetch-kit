@@ -1,14 +1,14 @@
 # Fetch Kit
 
-A Go-based MCP (Model Context Protocol) server that enables AI assistants like Claude to interact with web services. This tool provides a seamless interface for AI models to perform various web-related operations.
+A Go-based MCP (Model Control Protocol) connector that enables AI assistants like Claude to interact with web services. This tool provides a seamless interface for AI models to perform various web-related operations.
 
 ## Features
 
-* Interact with web services through AI models
 * Retrieve web content using Jina AI
 * Leverage Google AI (Gemini) services
 * Support for various web service integrations
 * Configurable tool groups
+* Interact with web services through AI models
 
 ## Installation
 
@@ -16,25 +16,40 @@ A Go-based MCP (Model Context Protocol) server that enables AI assistants like C
 
 There are several ways to install Fetch Kit:
 
-### Option 1: Go Install
+### Option 1: Download from GitHub Releases
+
+1. Visit the GitHub Releases page
+2. Download the binary for your platform:  
+   * `fetch-kit_linux_amd64` for Linux  
+   * `fetch-kit_darwin_amd64` for macOS  
+   * `fetch-kit_windows_amd64.exe` for Windows
+3. Make the binary executable (Linux/macOS):  
+   ```
+   chmod +x fetch-kit_*
+   ```
+4. Move it to your PATH (Linux/macOS):  
+   ```
+   sudo mv fetch-kit_* /usr/local/bin/fetch-kit
+   ```
+
+### Option 2: Go Install
 
 ```bash
 go install github.com/nguyenvanduocit/fetch-kit@latest
 ```
 
-### Option 2: Docker
+### Option 3: Docker
 
 #### Using Docker directly
 
-1. Pull the pre-built image from GitHub Container Registry:
-```bash
-docker pull ghcr.io/nguyenvanduocit/fetch-kit:latest
-```
-
-2. Or build the Docker image locally:
-```bash
-docker build -t fetch-kit .
-```
+1. Pull the pre-built image from GitHub Container Registry:  
+   ```bash
+   docker pull ghcr.io/nguyenvanduocit/fetch-kit:latest
+   ```
+2. Or build the Docker image locally:  
+   ```bash
+   docker build -t fetch-kit .
+   ```
 
 ## Configuration
 
@@ -54,7 +69,7 @@ PROXY_URL=            # Optional: HTTP/HTTPS proxy URL if needed
 
 You can set these:
 
-1. Directly in the Docker run command
+1. Directly in the Docker run command (recommended)
 2. Through a `.env` file (use the `-env` flag)
 3. Directly in your shell environment
 
@@ -103,6 +118,14 @@ Choose one of the installation methods above (Docker recommended).
     }
   }
 }
+```
+
+### Step 3: Test Connection
+
+You can test if the connection is working by asking Claude in Cursor:
+
+```
+@fetch_kit get web content from https://example.com
 ```
 
 ### Enable Tools
