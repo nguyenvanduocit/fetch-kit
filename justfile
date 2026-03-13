@@ -9,3 +9,9 @@ scan:
 
 install:
   go install ./...
+
+build-cli:
+  CGO_ENABLED=0 go build -ldflags="-s -w" -o ./bin/fetch-cli ./cmd/cli/
+
+install-cli:
+  go install ./cmd/cli/

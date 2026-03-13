@@ -132,6 +132,61 @@ You can test if the connection is working by asking Claude in Cursor:
 
 Fetch Kit supports various tool groups that can be enabled or disabled using the `ENABLE_TOOLS` environment variable. If not specified, all tools are enabled by default.
 
+## CLI Usage
+
+In addition to the MCP server, `fetch-kit` ships a standalone CLI binary (`fetch-cli`) for direct terminal use — no MCP client needed.
+
+### Installation
+
+```bash
+# Build locally
+just install-cli
+
+# Or with Go
+go install github.com/nguyenvanduocit/fetch-kit/cmd/cli@latest
+```
+
+### Quick Start
+
+```bash
+# Set credentials (only needed for the tools you use)
+export JINA_API_KEY=your-jina-key
+export GOOGLE_AI_API_KEY=your-gemini-key
+
+# Or use a .env file
+fetch-cli --env .env <command> [flags]
+```
+
+### Commands
+
+| Command | Description |
+|---------|-------------|
+| `jina-fetch` | Fetch and extract web content via Jina AI |
+| `gemini-fetch` | Fetch and analyze content using Gemini AI |
+| `youtube` | Get YouTube video transcripts |
+
+### Examples
+
+```bash
+# Fetch a web page
+fetch-cli jina-fetch --url https://example.com
+
+# Ask Gemini about a URL
+fetch-cli gemini-fetch --question "Summarize this" --context "https://example.com"
+
+# Get YouTube transcript
+fetch-cli youtube --video-id dQw4w9WgXcQ
+
+# JSON output
+fetch-cli jina-fetch --url https://example.com --output json
+```
+
+### Flags
+
+Every command accepts:
+- `--env string` — Path to `.env` file (default: `.env`)
+- `--output string` — Output format: `text` (default) or `json`
+
 ## Contributing
 
 1. Fork the repository
