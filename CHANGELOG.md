@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.2](https://github.com/nguyenvanduocit/fetch-kit/compare/v1.1.1...v1.1.2) (2026-03-13)
+
+
+### Bug Fixes
+
+* checkout tagged commit in goreleaser to fix tag mismatch ([7166cab](https://github.com/nguyenvanduocit/fetch-kit/commit/7166cab3f8b3d7a289c9451d443eff057e4380de))
+
 ## [1.1.1](https://github.com/nguyenvanduocit/fetch-kit/compare/v1.1.0...v1.1.1) (2026-03-13)
 
 
