@@ -202,3 +202,10 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 For a list of recent changes, see CHANGELOG.md.
+## Installation
+
+### Homebrew (macOS/Linux)
+
+```bash
+brew install nguyenvanduocit/tap/fetch-kit
+```
