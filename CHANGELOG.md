@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/nguyenvanduocit/fetch-kit/compare/v1.1.2...v1.1.3) (2026-03-13)
+
+
+### Bug Fixes
+
+* add explicit archive IDs for homebrew brew formula ([e029add](https://github.com/nguyenvanduocit/fetch-kit/commit/e029add7e7e76f5d8c09331a817d6b89279e7456))
+
 ## [1.1.2](https://github.com/nguyenvanduocit/fetch-kit/compare/v1.1.1...v1.1.2) (2026-03-13)
 
 
