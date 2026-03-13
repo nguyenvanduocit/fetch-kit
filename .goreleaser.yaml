@@ -36,7 +36,21 @@ builds:
       - -s -w -X main.version={{.Version}}
 
 archives:
-  - name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+  - id: fetch-kit
+    ids:
+      - fetch-kit
+    name_template: "fetch-kit_{{ .Os }}_{{ .Arch }}"
+    formats:
+      - tar.gz
+    format_overrides:
+      - goos: windows
+        formats:
+          - zip
+
+  - id: fetch-cli
+    ids:
+      - fetch-cli
+    name_template: "fetch-cli_{{ .Os }}_{{ .Arch }}"
     formats:
       - tar.gz
     format_overrides:
