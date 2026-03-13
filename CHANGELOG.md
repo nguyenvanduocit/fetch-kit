@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/nguyenvanduocit/fetch-kit/compare/v1.1.0...v1.1.1) (2026-03-13)
+
+
+### Bug Fixes
+
+* use merge instead of squash to preserve commit SHAs for release-please ([a3eeb52](https://github.com/nguyenvanduocit/fetch-kit/commit/a3eeb52fa0718877722b690b6eef303bb10444e8))
+
 ## [1.1.0](https://github.com/nguyenvanduocit/fetch-kit/compare/v1.0.0...v1.1.0) (2026-03-13)
 
 
