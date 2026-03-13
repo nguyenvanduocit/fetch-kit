@@ -143,7 +143,7 @@ In addition to the MCP server, `fetch-kit` ships a standalone CLI binary (`fetch
 just install-cli
 
 # Or with Go
-go install github.com/nguyenvanduocit/fetch-kit/cmd/cli@latest
+go install github.com/nguyenvanduocit/fetch-kit/cmd/fetch-cli@latest
 ```
 
 ### Quick Start

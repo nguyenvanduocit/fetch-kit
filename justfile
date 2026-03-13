@@ -11,7 +11,7 @@ install:
   go install ./...
 
 build-cli:
-  CGO_ENABLED=0 go build -ldflags="-s -w" -o ./bin/fetch-cli ./cmd/cli/
+  CGO_ENABLED=0 go build -ldflags="-s -w" -o ./bin/fetch-cli ./cmd/fetch-cli/
 
 install-cli:
-  go install ./cmd/cli/
+  go install ./cmd/fetch-cli/
