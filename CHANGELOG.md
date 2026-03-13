@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.0 (2026-03-13)
+
+
+### Features
+
+* add CLI package and update README with CLI usage ([595df9c](https://github.com/nguyenvanduocit/fetch-kit/commit/595df9cc3992e3067af4af79f329b213394b1549))
+* add Dockerfile and update dependencies; refactor tool handlers to use context ([019c830](https://github.com/nguyenvanduocit/fetch-kit/commit/019c8302d53b8d08ea38b8127c972f09e2676852))
+* init ([d9e4a3e](https://github.com/nguyenvanduocit/fetch-kit/commit/d9e4a3e922d0693918b0a82422b1b70e82414bb9))
+* update chart ([07b531f](https://github.com/nguyenvanduocit/fetch-kit/commit/07b531fe0c3a3f4d3dd17817ec80188605ffafc7))
+
 ## [1.2.0](https://github.com/nguyenvanduocit/fetch-kit/compare/v1.1.0...v1.2.0) (2025-04-18)
 
 
